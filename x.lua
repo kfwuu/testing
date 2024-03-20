@@ -1,4 +1,9 @@
-
+if isfolder("you lose niggaaaa") then
+    print("Found folder")
+else
+    makefolder("you lose niggaaaa")
+    print('wahhh')
+end
 local inputService   = game:GetService("UserInputService")
 local runService     = game:GetService("RunService")
 local tweenService   = game:GetService("TweenService")
@@ -1708,10 +1713,15 @@ end
 
 function library:refreshConfigs()
     local tbl = {}
-    for i,v in next, listfiles("you lose niggaaaa") do
-        table.insert(tbl,v)
+    for i, v in next, listfiles("you lose niggaaaa") do
+        table.insert(tbl, v)
     end
-    library.options["selected_config"].refresh(tbl)
+    
+    if library.options["selected_config"] and library.options["selected_config"].refresh then
+        library.options["selected_config"].refresh(tbl)
+    else
+        print("No selected config or refresh function found.")
+    end
 end
 
 function library:deleteConfig()
