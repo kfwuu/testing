@@ -1672,13 +1672,10 @@ function library:saveConfig()
     library:refreshConfigs()
 end
 
+
 function library:loadConfig()
     local name = library.flags["selected_config"]
-    if not isfile(name) then
-        library:notify("Config file not found!")
-        return
-    end
-    local config = game:GetService("HttpService"):JSONDecode(readfile("you lose niggaaaa/"..name..".cfg"))
+    local config = game:GetService("HttpService"):JSONDecode(readfile(name..".cfg"))
     for i,v in next, library.options do
         spawn(function()pcall(function()
             if config[i] then
