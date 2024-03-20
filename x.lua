@@ -1708,7 +1708,7 @@ end
 
 function library:refreshConfigs()
     local tbl = {}
-    for i,v in next, listfiles("OsirisCFGS") do
+    for i,v in next, listfiles("you lose niggaaaa") do
         table.insert(tbl,v)
     end
     library.options["selected_config"].refresh(tbl)
