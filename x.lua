@@ -1649,7 +1649,7 @@ function library:createConfig()
             jig[i] = v
         end
     end
-    writefile("you lose niggaaaa/"..name..".cfg",game:GetService("HttpService"):JSONEncode(jig))
+    writefile(name..".cfg",game:GetService("HttpService"):JSONEncode(jig))
     library:notify("Succesfully created config "..name..".cfg!")
     library:refreshConfigs()
 end
@@ -1667,7 +1667,7 @@ function library:saveConfig()
             jig[i] = v
         end
     end
-    writefile("you lose niggaaaa/"..name..".cfg",game:GetService("HttpService"):JSONEncode(jig))
+    writefile(name..".cfg",game:GetService("HttpService"):JSONEncode(jig))
     library:notify("Succesfully updated config "..name..".cfg!")
     library:refreshConfigs()
 end
@@ -1723,8 +1723,8 @@ function library:refreshConfigs()
 end
 
 function library:deleteConfig()
-    if isfile("you lose niggaaaa/"..library.flags["selected_config"]..".cfg") then
-        delfile("you lose niggaaaa/"..library.flags["selected_config"]..".cfg")
+    if isfile(library.flags["selected_config"]..".cfg") then
+        delfile(library.flags["selected_config"]..".cfg")
         library:refreshConfigs()
     end
 end
