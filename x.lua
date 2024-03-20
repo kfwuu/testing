@@ -1,9 +1,9 @@
 if isfolder("you lose niggaaaa") then
-    print("Found folder")
+    
 else
     makefolder("you lose niggaaaa")
-    print('wahhh')
 end
+
 local inputService   = game:GetService("UserInputService")
 local runService     = game:GetService("RunService")
 local tweenService   = game:GetService("TweenService")
@@ -1674,7 +1674,7 @@ end
 
 function library:loadConfig()
     local name = library.flags["selected_config"]
-    if not isfile("you lose niggaaaa/"..name..".cfg") then
+    if not isfile(name) then
         library:notify("Config file not found!")
         return
     end
@@ -1711,22 +1711,17 @@ function library:loadConfig()
     library:notify("Succesfully loaded config "..name..".cfg!")
 end
 
+
 function library:refreshConfigs()
     local tbl = {}
     for i, v in next, listfiles("you lose niggaaaa") do
         table.insert(tbl, v)
     end
     
-    if library.options["selected_config"] then
-        print("selected_config exists")
-        if library.options["selected_config"].refresh then
-            print("refresh function exists")
-            library.options["selected_config"].refresh(tbl)
-        else
-            print("No refresh function found.")
-        end
+    if library.options["selected_config"] and library.options["selected_config"].refresh then
+        library.options["selected_config"].refresh(tbl)
     else
-        print("No selected config found.")
+        library:notify("No selected config or refresh function found.")
     end
 end
 
