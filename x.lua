@@ -1717,10 +1717,16 @@ function library:refreshConfigs()
         table.insert(tbl, v)
     end
     
-    if library.options["selected_config"] and library.options["selected_config"].refresh then
-        library.options["selected_config"].refresh(tbl)
+    if library.options["selected_config"] then
+        print("selected_config exists")
+        if library.options["selected_config"].refresh then
+            print("refresh function exists")
+            library.options["selected_config"].refresh(tbl)
+        else
+            print("No refresh function found.")
+        end
     else
-        print("No selected config or refresh function found.")
+        print("No selected config found.")
     end
 end
 
