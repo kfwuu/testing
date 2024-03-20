@@ -1,9 +1,4 @@
-if isfolder("you lose niggaaaa") then
-    print("Found folder")
-else
-    makefolder("you lose niggaaaa")
-    print('wahhh')
-end
+
 local inputService   = game:GetService("UserInputService")
 local runService     = game:GetService("RunService")
 local tweenService   = game:GetService("TweenService")
@@ -14,7 +9,7 @@ local mouse          = localPlayer:GetMouse()
 local menu           = game:GetObjects("rbxassetid://12702460854")[1]
 menu.bg.Position     = UDim2.new(0.5,-menu.bg.Size.X.Offset/2,0.5,-menu.bg.Size.Y.Offset/2)
 menu.Parent          = game:GetService("CoreGui")
-menu.bg.pre.Text = 'Seere<font color="#c375ae">.vip</font> - fiji was here!!!!'
+menu.bg.pre.Text = 'you<font color="#c375ae">.lose</font> - XP'
 local library = {cheatname = "";ext = "";gamename = "";colorpicking = false;tabbuttons = {};tabs = {};options = {};flags = {};scrolling = false;notifyText = Drawing.new("Text");playing = false;multiZindex = 200;toInvis = {};libColor = Color3.fromRGB(240, 142, 214);disabledcolor = Color3.fromRGB(233, 0, 0);blacklisted = {Enum.KeyCode.W,Enum.KeyCode.A,Enum.KeyCode.S,Enum.KeyCode.D,Enum.UserInputType.MouseMovement}}
 
 function draggable(a)local b=inputService;local c;local d;local e;local f;local function g(h)if not library.colorpicking then local i=h.Position-e;a.Position=UDim2.new(f.X.Scale,f.X.Offset+i.X,f.Y.Scale,f.Y.Offset+i.Y)end end;a.InputBegan:Connect(function(h)if h.UserInputType==Enum.UserInputType.MouseButton1 or h.UserInputType==Enum.UserInputType.Touch then c=true;e=h.Position;f=a.Position;h.Changed:Connect(function()if h.UserInputState==Enum.UserInputState.End then c=false end end)end end)a.InputChanged:Connect(function(h)if h.UserInputType==Enum.UserInputType.MouseMovement or h.UserInputType==Enum.UserInputType.Touch then d=h end end)b.InputChanged:Connect(function(h)if h==d and c then g(h)end end)end
@@ -1636,7 +1631,7 @@ end
 
 function library:createConfig()
     local name = library.flags["config_name"]
-    if library.options["selected_config"] then return library:notify(name..".cfg already exists!") end
+    if contains(library.options["selected_config"].values, name) then return library:notify(name..".cfg already exists!") end
     if name == "" then return library:notify("Put a name goofy") end
     local jig = {}
     for i,v in next, library.flags do
@@ -1649,7 +1644,7 @@ function library:createConfig()
             jig[i] = v
         end
     end
-    writefile("you lose niggaaaa/"..library.flags["config_name"]..".cfg",game:GetService("HttpService"):JSONEncode(jig))
+    writefile("you lose niggaaaa/"..name..".cfg",game:GetService("HttpService"):JSONEncode(jig))
     library:notify("Succesfully created config "..name..".cfg!")
     library:refreshConfigs()
 end
@@ -1667,18 +1662,18 @@ function library:saveConfig()
             jig[i] = v
         end
     end
-    writefile("you lose niggaaaa/"..library.flags["config_name"]..".cfg",game:GetService("HttpService"):JSONEncode(jig))
+    writefile("you lose niggaaaa/"..name..".cfg",game:GetService("HttpService"):JSONEncode(jig))
     library:notify("Succesfully updated config "..name..".cfg!")
     library:refreshConfigs()
 end
 
 function library:loadConfig()
     local name = library.flags["selected_config"]
-    if not isfile("you lose niggaaaa/"..library.flags["config_name"]..".cfg") then
+    if not isfile("you lose niggaaaa/"..name..".cfg") then
         library:notify("Config file not found!")
         return
     end
-    local config = game:GetService("HttpService"):JSONDecode(readfile("you lose niggaaaa/"..library.flags["config_name"]..".cfg"))
+    local config = game:GetService("HttpService"):JSONDecode(readfile("you lose niggaaaa/"..name..".cfg"))
     for i,v in next, library.options do
         spawn(function()pcall(function()
             if config[i] then
@@ -1713,15 +1708,15 @@ end
 
 function library:refreshConfigs()
     local tbl = {}
-    for i,v in next, listfiles("you lose niggaaaa/") do
+    for i,v in next, listfiles("you lose niggaaaa") do
         table.insert(tbl,v)
     end
     library.options["selected_config"].refresh(tbl)
 end
 
 function library:deleteConfig()
-    if isfile("you lose niggaaaa/"..library.flags["config_name"]..".cfg") then
-        delfile("you lose niggaaaa/"..library.flags["config_name"]..".cfg")
+    if isfile("you lose niggaaaa/"..library.flags["selected_config"]..".cfg") then
+        delfile("you lose niggaaaa/"..library.flags["selected_config"]..".cfg")
         library:refreshConfigs()
     end
 end
