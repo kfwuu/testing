@@ -14,7 +14,7 @@ local RunService = game:GetService("RunService")
 -- settings (so u dont have to scroll)
 local settings = {
     folder_name = "yeno private slotted";
-    default_accent = Color3.fromRGB(159, 43, 104);
+    default_accent = Color3.fromRGB(167, 120, 216);
     drag_easying_style = "Quad";
     drag_easying_direction = "Out";
     drag_time = 0.3;
