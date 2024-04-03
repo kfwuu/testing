@@ -13,7 +13,7 @@ end;
 local RunService = game:GetService("RunService")
 -- settings (so u dont have to scroll)
 local settings = {
-    folder_name = "yeno private slotted";
+    folder_name = "AFW";
     default_accent = Color3.fromRGB(45, 136, 247);
     drag_easying_style = "Quad";
     drag_easying_direction = "Out";
@@ -5429,7 +5429,7 @@ function library:init_window(cfg)
                 local value = library.flags[flag]
 
                 if typeof(value) == "EnumItem" then
-                    configtbl[flag] = {string.split(tostring(_ ),".")[2],string.split(tostring(_ ),".")[3]}
+                    configtbl[flag] = tostring(value)
                 elseif typeof(value) == "Color3" then
                     configtbl[flag] = {color = value:ToHex(), alpha = value.A}
                 else
