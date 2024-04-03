@@ -20,9 +20,9 @@ local settings = {
     drag_time = 0.3;
 };
 
-local drawing = loadstring(game:HttpGet("https://raw.githubusercontent.com/mandeIa/yeno_slotted_libs/main/drawing.lua"))();
-local tween = loadstring(game:HttpGet("https://raw.githubusercontent.com/mandeIa/yeno_slotted_libs/main/tween.lua"))() -- shhhh
-local signal = loadstring(game:HttpGet('https://raw.githubusercontent.com/mandeIa/yeno_slotted_libs/main/signal.lua'))()
+local drawing = loadstring(game:HttpGet("https://raw.githubusercontent.com/kfwuu/testing/main/drawing"))();
+local tween = loadstring(game:HttpGet("https://github.com/kfwuu/testing/blob/main/tween"))() -- shhhh
+--local signal = loadstring(game:HttpGet('https://raw.githubusercontent.com/mandeIa/yeno_slotted_libs/main/signal.lua'))()
 
 -- library
 if not isfolder(settings.folder_name) then
@@ -34,10 +34,10 @@ if not isfile(settings.folder_name.."/window_size.txt") then
     writefile(settings.folder_name.."/window_size.txt", "")
 end;
 local images = {
-    ['gradient90'] = "https://github.com/mandeIa/yeno_slotted_libs/blob/main/gradient.png?raw=true";
-    ['gradient180'] = "https://github.com/mandeIa/yeno_slotted_libs/blob/main/gradient180.png?raw=true";
-    ['arrow_down'] = "https://github.com/mandeIa/yeno_slotted_libs/blob/main/arrowdown.png?raw=true";
-    ['arrow_up'] = "https://github.com/mandeIa/yeno_slotted_libs/blob/main/arrowup.png?raw=true";
+    ['gradient90'] = "https://github.com/kfwuu/testing/blob/main/gradient.png?raw=true";
+    ['gradient180'] = "https://github.com/kfwuu/testing/blob/main/gradient180.png?raw=true";
+    ['arrow_down'] = "https://github.com/kfwuu/testing/blob/main/arrowdown.png?raw=true";
+    ['arrow_up'] = "https://github.com/kfwuu/testing/blob/main/arrowup.png?raw=true";
 }
 for i,v in next, images do
     if not isfile(settings.folder_name..'/assets/'..i..'.ln') then
