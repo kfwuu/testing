@@ -21,7 +21,7 @@ local settings = {
 };
 
 local drawing = loadstring(game:HttpGet("https://raw.githubusercontent.com/kfwuu/testing/main/drawing"))();
-local tween = loadstring(game:HttpGet("https://github.com/kfwuu/testing/blob/main/tween"))() -- shhhh
+local tween = loadstring(game:HttpGet("https://raw.githubusercontent.com/kfwuu/testing/main/tween"))() -- shhhh
 --local signal = loadstring(game:HttpGet('https://raw.githubusercontent.com/mandeIa/yeno_slotted_libs/main/signal.lua'))()
 
 -- library
