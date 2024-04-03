@@ -5432,6 +5432,8 @@ function library:init_window(cfg)
                     configtbl[flag] = {string.split(tostring(_ ),".")[2],string.split(tostring(_ ),".")[3]}
                 elseif typeof(value) == "Color3" then
                     configtbl[flag] = {color = value:ToHex(), alpha = value.A}
+                else
+                    configtbl[flag] = value
                 end
             end
         end
